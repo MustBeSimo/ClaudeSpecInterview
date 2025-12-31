@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The SPEC Workflow — Instruction Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background: #F4F1EA;
+            font-family: 'Inter', sans-serif;
+            color: #1B3A52;
+        }
+
+        /* PAGE STRUCTURE */
+        .page {
+            width: 100%;
+            min-height: 100vh;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: flex-start;
+            background: #F4F1EA;
+            padding-bottom: 200px;
+        }
+
+        /* LEFT COLUMN — TEXT */
+        .left-column {
+            max-width: 520px;
+        }
+
+        /* RIGHT COLUMN — VISUAL */
+        .right-column {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* TYPOGRAPHY */
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #B85C38;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 52px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.15;
+            color: #1B3A52;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1B3A52;
+            margin-bottom: 16px;
+            margin-top: 32px;
+            letter-spacing: -0.3px;
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: rgba(27, 58, 82, 0.85);
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(27, 58, 82, 0.75);
+            margin-bottom: 32px;
+        }
+
+        /* INSTRUCTION STEPS */
+        .steps {
+            margin-top: 40px;
+        }
+
+        .step {
+            margin-bottom: 20px;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: #1B3A52;
+            color: #F4F1EA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            border-radius: 2px;
+        }
+
+        .step h3 {
+            font-size: 14px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1B3A52;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .step p {
+            font-size: 13px;
+            margin: 0;
+            color: rgba(27, 58, 82, 0.7);
+            line-height: 1.5;
+        }
+
+        .highlight {
+            color: #B85C38;
+            font-weight: 600;
+        }
+
+        /* CODE BLOCK */
+        .code-block {
+            background: rgba(27, 58, 82, 0.05);
+            border-left: 3px solid #B85C38;
+            padding: 16px;
+            margin-top: 24px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            line-height: 1.6;
+            color: #1B3A52;
+            overflow-x: auto;
+        }
+
+        /* REFERENCE CITATION */
+        .citation {
+            background: rgba(184, 92, 56, 0.05);
+            border-left: 3px solid #B85C38;
+            padding: 12px 16px;
+            margin-top: 12px;
+            font-size: 12px;
+            line-height: 1.5;
+            color: rgba(27, 58, 82, 0.75);
+            font-style: italic;
+        }
+
+        .citation a {
+            color: #B85C38;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .citation a:hover {
+            text-decoration: underline;
+        }
+
+        /* RIGHT COLUMN GRAPHICS */
+        .visual-container {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .workflow-diagram {
+            display: grid;
+            grid-template-rows: auto auto auto auto auto auto;
+            gap: 16px;
+            width: 100%;
+        }
+
+        /* STEP BOXES */
+        .step-visual {
+            background: rgba(27, 58, 82, 0.04);
+            border: 1px solid rgba(27, 58, 82, 0.15);
+            padding: 24px 20px;
+            border-radius: 4px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-visual.active {
+            background: rgba(184, 92, 56, 0.08);
+            border-color: #B85C38;
+        }
+
+        .step-number {
+            font-size: 40px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #B85C38;
+            margin-bottom: 8px;
+        }
+
+        .step-title {
+            font-size: 12px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #1B3A52;
+            margin-bottom: 6px;
+        }
+
+        .step-desc {
+            font-size: 11px;
+            line-height: 1.5;
+            color: rgba(27, 58, 82, 0.75);
+        }
+
+        /* CONNECTOR */
+        .connector {
+            height: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: -8px 0;
+        }
+
+        .connector::after {
+            content: "";
+            width: 2px;
+            height: 12px;
+            background: #B85C38;
+        }
+
+        /* BOTTOM CTA */
+        .cta-section {
+            position: relative;
+            margin-top: 80px;
+            background: linear-gradient(135deg, rgba(184, 92, 56, 0.1), rgba(184, 92, 56, 0.05));
+            border: 1px solid rgba(184, 92, 56, 0.2);
+            padding: 24px 28px;
+            border-radius: 4px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .cta-item h4 {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #B85C38;
+            margin-bottom: 6px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .cta-item p {
+            font-size: 12px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body { background: white; }
+            .page { height: auto; padding: 40px; gap: 60px; }
+        }
+
+        @media (max-width: 1400px) {
+            .page { gap: 60px; padding: 40px; }
+            h1 { font-size: 44px; }
+            h2 { font-size: 24px; }
+        }
+
+        @media (max-width: 1024px) {
+            .page {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                align-items: flex-start;
+                padding-bottom: 100px;
+            }
+            h1 { font-size: 40px; }
+            .right-column { position: relative; width: 100%; }
+            .cta-section { grid-template-columns: 1fr; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- LEFT: TEXT INSTRUCTIONS -->
+        <div class="left-column">
+            <div class="section-label">Instruction Guide</div>
+            <h1>The SPEC Workflow</h1>
+            <p class="subtitle">Transform vague ideas into detailed specifications through structured dialogue with Claude Code. Three simple steps.</p>
+
+            <h2>Why It Matters</h2>
+            <p>Building without a specification is building with hope. Assumptions stay hidden until rework reveals them. The SPEC workflow forces clarity before implementation.</p>
+
+            <h2>The Process</h2>
+
+            <div class="steps">
+                <div class="step" data-step="1">
+                    <h3>Create</h3>
+                    <p>Write a minimal <span class="highlight">SPEC.md</span> file. 2–5 paragraphs only. Include: core intent, user context, rough scope, key concerns. Don't pretend completeness.</p>
+                </div>
+
+                <div class="step" data-step="2">
+                    <h3>Interview</h3>
+                    <p>Paste the prompt below into <span class="highlight">Claude Code</span>. Claude reads your spec, asks hard questions. You answer truthfully. The dialogue refines the specification.</p>
+
+                    <div class="code-block">
+"read this @SPEC.md and interview me in detail using AskUserQuestionTool about: technical implementation, UI & UX, concerns, tradeoffs. Make sure questions aren't obvious. Be very in-depth. Continue until complete, then write the spec to the file."
+                    </div>
+
+                    <div class="citation">
+                        Inspired by <a href="https://x.com/trq212/status/2005315275026260309?s=20" target="_blank">@trq212's insights on spec-driven development</a>. Structured questioning reveals what you truly need to build.
+                    </div>
+                </div>
+
+                <div class="step" data-step="3">
+                    <h3>Finalize</h3>
+                    <p>Claude writes the <span class="highlight">detailed specification</span> to SPEC.md. Architecture crystallizes. You now have a blueprint before writing code.</p>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 40px;">The Outcome</h2>
+            <p><span class="highlight">Precision in intent</span> precedes elegance in implementation. The specification isn't a constraint—it's a blueprint for inevitability.</p>
+        </div>
+
+        <!-- RIGHT: VISUAL WORKFLOW -->
+        <div class="right-column">
+            <div class="visual-container">
+                <div class="workflow-diagram">
+                    <!-- STEP 1 -->
+                    <div class="step-visual active">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Create SPEC.md</div>
+                        <div class="step-desc">Write minimal rough draft<br>• Core intent<br>• User context<br>• Rough scope<br>• Key concerns</div>
+                    </div>
+
+                    <!-- CONNECTOR -->
+                    <div class="connector"></div>
+
+                    <!-- STEP 2 -->
+                    <div class="step-visual">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Interview with Claude</div>
+                        <div class="step-desc">Paste prompt, Claude asks<br>• Reads your spec<br>• Finds gaps<br>• Questions assumptions<br>• You answer</div>
+                    </div>
+
+                    <!-- CONNECTOR -->
+                    <div class="connector"></div>
+
+                    <!-- STEP 3 -->
+                    <div class="step-visual">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Finalized Spec</div>
+                        <div class="step-desc">Architecture emerges<br>• Detailed specification<br>• All assumptions explicit<br>• Ready for implementation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA FOOTER -->
+    <div class="cta-section">
+        <div class="cta-item">
+            <h4>Time Investment</h4>
+            <p>~30 minutes of interview dialogue. Saves weeks of rework.</p>
+        </div>
+        <div class="cta-item">
+            <h4>Start Today</h4>
+            <p>Create SPEC.md for your next project. Let the dialogue reveal what needs to be built.</p>
+        </div>
+    </div>
+</body>
+</html>
