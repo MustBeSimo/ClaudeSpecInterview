@@ -284,6 +284,126 @@
             line-height: 1.5;
         }
 
+        /* AUTHOR & METADATA */
+        .author-meta {
+            font-size: 12px;
+            color: rgba(27, 58, 82, 0.6);
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(27, 58, 82, 0.1);
+        }
+
+        .author-meta strong {
+            color: #B85C38;
+            font-weight: 600;
+        }
+
+        /* EXAMPLES SECTION */
+        .examples-section {
+            margin-top: 120px;
+            padding: 80px 60px;
+            background: #fff;
+            border-top: 1px solid rgba(27, 58, 82, 0.1);
+        }
+
+        .examples-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-intro {
+            font-size: 16px;
+            color: rgba(27, 58, 82, 0.8);
+            margin-bottom: 48px;
+            max-width: 700px;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .example-card {
+            background: #F4F1EA;
+            border: 1px solid rgba(27, 58, 82, 0.1);
+            padding: 32px;
+            border-radius: 4px;
+        }
+
+        .example-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1B3A52;
+            margin-bottom: 12px;
+        }
+
+        .example-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #B85C38;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .example-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(27, 58, 82, 0.8);
+            margin-bottom: 16px;
+        }
+
+        .example-card .highlight-box {
+            background: rgba(184, 92, 56, 0.08);
+            border-left: 3px solid #B85C38;
+            padding: 12px 14px;
+            margin-top: 16px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #1B3A52;
+            font-weight: 500;
+        }
+
+        .example-before-after {
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .before, .after {
+            padding: 12px 14px;
+            border-radius: 3px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .before {
+            background: rgba(139, 0, 0, 0.08);
+            border-left: 3px solid #8B0000;
+            color: #4a2626;
+        }
+
+        .after {
+            background: rgba(27, 130, 100, 0.08);
+            border-left: 3px solid #1b8264;
+            color: #1a4a3a;
+        }
+
+        .before strong {
+            color: #8B0000;
+            font-weight: 600;
+        }
+
+        .after strong {
+            color: #1b8264;
+            font-weight: 600;
+        }
+
         /* PRINT STYLES */
         @media print {
             body { background: white; }
@@ -306,6 +426,8 @@
             h1 { font-size: 40px; }
             .right-column { position: relative; width: 100%; }
             .cta-section { grid-template-columns: 1fr; gap: 20px; }
+            .examples-grid { grid-template-columns: 1fr; }
+            .example-before-after { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -349,6 +471,10 @@
 
             <h2 style="margin-top: 40px;">The Outcome</h2>
             <p><span class="highlight">Precision in intent</span> precedes elegance in implementation. The specification isn't a constraint—it's a blueprint for inevitability.</p>
+
+            <div class="author-meta">
+                <strong>By Simone Leonelli</strong> • December 2025
+            </div>
         </div>
 
         <!-- RIGHT: VISUAL WORKFLOW -->
@@ -395,6 +521,121 @@
         <div class="cta-item">
             <h4>Start Today</h4>
             <p>Create SPEC.md for your next project. Let the dialogue reveal what needs to be built.</p>
+        </div>
+    </div>
+
+    <!-- EXAMPLES SECTION -->
+    <div class="examples-section">
+        <div class="examples-container">
+            <h2>Real-World Examples</h2>
+            <p class="section-intro">See how the SPEC workflow transforms vague ideas into actionable specifications across different project types.</p>
+
+            <div class="examples-grid">
+                <!-- EXAMPLE 1 -->
+                <div class="example-card">
+                    <span class="example-label">SaaS Product</span>
+                    <h3>Building a Task Dashboard</h3>
+                    <p>A team wanted to build a "collaborative task dashboard" but had conflicting visions about priorities, notifications, and team permissions.</p>
+                    <div class="highlight-box">
+                        <strong>The Problem:</strong> "Collaborative" meant different things to each stakeholder. Real-time collaboration? Comment threads? Role-based filtering?
+                    </div>
+                    <div class="example-before-after">
+                        <div class="before">
+                            <strong>Before SPEC</strong><br>3 months in, rebuilding core features due to conflicting assumptions
+                        </div>
+                        <div class="after">
+                            <strong>After SPEC</strong><br>All assumptions explicit. Dev started confident with clear architecture
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXAMPLE 2 -->
+                <div class="example-card">
+                    <span class="example-label">API Integration</span>
+                    <h3>Third-party Payment Gateway</h3>
+                    <p>Integrating Stripe seemed straightforward until questions arose: should we retry failed transactions? How do we handle disputes? What currencies?</p>
+                    <div class="highlight-box">
+                        <strong>The Problem:</strong> Assumed "integration" was just API calls. Ignored critical business logic around edge cases and compliance.
+                    </div>
+                    <div class="example-before-after">
+                        <div class="before">
+                            <strong>Before SPEC</strong><br>Launched without retry logic. Lost revenue from recoverable failures
+                        </div>
+                        <div class="after">
+                            <strong>After SPEC</strong><br>Strategy defined for retries, edge cases, and compliance upfront
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXAMPLE 3 -->
+                <div class="example-card">
+                    <span class="example-label">Mobile App</span>
+                    <h3>Offline-First Social Feed</h3>
+                    <p>Wanted an app that works without internet, but the specification didn't address sync conflicts, data consistency, or storage limits.</p>
+                    <div class="highlight-box">
+                        <strong>The Problem:</strong> "Offline-first" is an architectural choice with deep implications. Can't be decided mid-implementation.
+                    </div>
+                    <div class="example-before-after">
+                        <div class="before">
+                            <strong>Before SPEC</strong><br>Architecture pivoted halfway through after discovering sync complexity
+                        </div>
+                        <div class="after">
+                            <strong>After SPEC</strong><br>Conflict resolution strategy determined before a single line of code
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXAMPLE 4 -->
+                <div class="example-card">
+                    <span class="example-label">Admin Tool</span>
+                    <h3>Data Export System</h3>
+                    <p>Building a tool to "export user data in multiple formats" raised questions: which formats? CSV integrity? Real-time or scheduled? What about 10GB+ datasets?</p>
+                    <div class="highlight-box">
+                        <strong>The Problem:</strong> Scope creep disguised as a simple feature. Different stakeholders expected different capabilities.
+                    </div>
+                    <div class="example-before-after">
+                        <div class="before">
+                            <strong>Before SPEC</strong><br>Built for small datasets. Crashed with enterprise customers
+                        </div>
+                        <div class="after">
+                            <strong>After SPEC</strong><br>Architecture handles scale, formats, and async processing from day one
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WHAT CHANGED SECTION -->
+            <h2 style="margin-top: 60px;">What Changed</h2>
+            <p class="section-intro">Three patterns across all successful SPEC workflows:</p>
+
+            <div class="examples-grid">
+                <div class="example-card">
+                    <h3 style="color: #1b8264;">1. Hidden Assumptions Surfaced</h3>
+                    <p>Every team assumed differently about scope, priority, and edge cases. The interview forces these out early.</p>
+                </div>
+
+                <div class="example-card">
+                    <h3 style="color: #1b8264;">2. Architecture Emerged First</h3>
+                    <p>Technical choices became explicit before coding. Real-time vs. eventual consistency? Scale assumptions? Decided upfront.</p>
+                </div>
+
+                <div class="example-card">
+                    <h3 style="color: #1b8264;">3. Rework Prevented</h3>
+                    <p>The dialogue revealed conflicts that would have surfaced during code review or testing—when rework is most expensive.</p>
+                </div>
+
+                <div class="example-card">
+                    <h3 style="color: #1b8264;">4. Stakeholder Alignment</h3>
+                    <p>By the time development starts, everyone understands what's being built and why. No surprises during handoff.</p>
+                </div>
+            </div>
+
+            <!-- CLOSING -->
+            <div style="margin-top: 80px; padding: 40px; background: linear-gradient(135deg, rgba(184, 92, 56, 0.05), rgba(184, 92, 56, 0.02)); border: 1px solid rgba(184, 92, 56, 0.15); border-radius: 4px;">
+                <h2 style="margin-top: 0;">The Cost of Clarity</h2>
+                <p style="font-size: 15px; margin-bottom: 0;">A 30-minute structured dialogue before writing code prevents weeks of rework. The SPEC workflow isn't about perfection—it's about making assumptions explicit so they can be questioned and resolved early.</p>
+                <p style="font-size: 14px; color: rgba(27, 58, 82, 0.65); margin-top: 20px; margin-bottom: 0;">Start with your next project. Write SPEC.md. Let the questions guide you toward what needs to be built.</p>
+            </div>
         </div>
     </div>
 </body>
