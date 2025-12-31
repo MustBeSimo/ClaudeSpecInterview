@@ -37,4 +37,4 @@ The SPEC workflow ensures:
 
 Inspired by [@trq212](https://x.com/trq212/status/2005315275026260309?s=20)'s insights on spec-driven development.
 
-**By Simone Leonelli** • December 2025
+**By [Simone Leonelli](https://w230.net)** • December 2025
