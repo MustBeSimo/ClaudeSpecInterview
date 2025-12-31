@@ -404,6 +404,69 @@
             font-weight: 600;
         }
 
+        /* LISTS FOR INTERVIEW STEP */
+        .step ul {
+            list-style: none;
+        }
+
+        .step ul li {
+            font-size: 13px;
+            line-height: 1.6;
+            color: rgba(27, 58, 82, 0.7);
+            margin-bottom: 8px;
+        }
+
+        .step ul li::before {
+            content: "→ ";
+            color: #B85C38;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+
+        /* FEATURE HIGHLIGHT */
+        .feature-section {
+            margin-top: 100px;
+            padding: 60px;
+            background: linear-gradient(135deg, rgba(184, 92, 56, 0.1), rgba(184, 92, 56, 0.05));
+            border: 2px solid #B85C38;
+            border-radius: 4px;
+        }
+
+        .feature-section h2 {
+            color: #B85C38;
+            margin-top: 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 32px;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 24px;
+            border-radius: 3px;
+            border-left: 4px solid #B85C38;
+        }
+
+        .feature-item h4 {
+            font-size: 14px;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1B3A52;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .feature-item p {
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.6;
+        }
+
         /* PRINT STYLES */
         @media print {
             body { background: white; }
@@ -428,6 +491,7 @@
             .cta-section { grid-template-columns: 1fr; gap: 20px; }
             .examples-grid { grid-template-columns: 1fr; }
             .example-before-after { grid-template-columns: 1fr; }
+            .feature-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -437,10 +501,10 @@
         <div class="left-column">
             <div class="section-label">Instruction Guide</div>
             <h1>The SPEC Workflow</h1>
-            <p class="subtitle">Transform vague ideas into detailed specifications through structured dialogue with Claude Code. Three simple steps.</p>
+            <p class="subtitle">Transform vague ideas into detailed specifications through structured dialogue with Claude Code. Powered by <span class="highlight">AskUserQuestionTool</span>.</p>
 
             <h2>Why It Matters</h2>
-            <p>Building without a specification is building with hope. Assumptions stay hidden until rework reveals them. The SPEC workflow forces clarity before implementation.</p>
+            <p>Building without a specification is building with hope. Assumptions stay hidden until rework reveals them. The SPEC workflow forces clarity before implementation by having Claude ask the hard questions you didn't know to ask yourself.</p>
 
             <h2>The Process</h2>
 
@@ -451,15 +515,23 @@
                 </div>
 
                 <div class="step" data-step="2">
-                    <h3>Interview</h3>
-                    <p>Paste the prompt below into <span class="highlight">Claude Code</span>. Claude reads your spec, asks hard questions. You answer truthfully. The dialogue refines the specification.</p>
+                    <h3>Interview via AskUserQuestionTool</h3>
+                    <p>This is where the magic happens. Claude uses <span class="highlight">AskUserQuestionTool</span> to ask targeted, revealing questions about your spec. Not surface-level "gotchas"—questions designed to expose hidden assumptions, tradeoffs, and gaps you didn't see.</p>
+
+                    <p style="font-size: 13px; color: rgba(27, 58, 82, 0.7); margin-top: 12px;">Questions like:</p>
+                    <ul style="font-size: 12px; color: rgba(27, 58, 82, 0.7); margin: 12px 0 0 0; padding-left: 20px;">
+                        <li>"When you say 'real-time', what's the maximum acceptable latency?"</li>
+                        <li>"How do you handle conflicts when two users edit simultaneously?"</li>
+                        <li>"What's your definition of 'scalable'—users, requests per second, or data volume?"</li>
+                        <li>"If this feature fails, what's the business impact?"</li>
+                    </ul>
 
                     <div class="code-block">
-"read this @SPEC.md and interview me in detail using AskUserQuestionTool about: technical implementation, UI & UX, concerns, tradeoffs. Make sure questions aren't obvious. Be very in-depth. Continue until complete, then write the spec to the file."
+"read this @SPEC.md and interview me in detail using AskUserQuestionTool about: technical implementation, UI & UX, concerns, tradeoffs. Make sure questions aren't obvious. Be very in-depth. Continue until you've thoroughly challenged all assumptions, then write the refined spec to the file."
                     </div>
 
                     <div class="citation">
-                        Inspired by <a href="https://x.com/trq212/status/2005315275026260309?s=20" target="_blank">@trq212's insights on spec-driven development</a>. Structured questioning reveals what you truly need to build.
+                        <strong>The Key:</strong> AskUserQuestionTool forces you to articulate what you actually mean. "Collaborative" becomes explicit. "Fast" gets measured. "Scalable" gets defined. This dialogue is where vague intentions crystallize into specifications. Inspired by <a href="https://x.com/trq212/status/2005315275026260309?s=20" target="_blank">@trq212's insights on spec-driven development</a>.
                     </div>
                 </div>
 
@@ -521,6 +593,50 @@
         <div class="cta-item">
             <h4>Start Today</h4>
             <p>Create SPEC.md for your next project. Let the dialogue reveal what needs to be built.</p>
+        </div>
+    </div>
+
+    <!-- THE KEY: AskUserQuestionTool FEATURE -->
+    <div style="padding: 0 60px;">
+        <div class="feature-section">
+            <h2>The Secret Sauce: AskUserQuestionTool</h2>
+            <p style="font-size: 15px; margin: 16px 0 32px 0;">This entire workflow is powered by Claude Code's AskUserQuestionTool feature. It's what transforms a vague idea into a precise specification through structured, targeted questioning.</p>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>Reveals Hidden Assumptions</h4>
+                    <p>You think your spec is clear. It's not. AskUserQuestionTool asks questions that expose what you didn't consciously define: latency targets, failure scenarios, edge cases, prioritization.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Questions You Wouldn't Ask</h4>
+                    <p>Claude knows which questions matter. "What happens when X fails?" "How do you define success for this feature?" "Who decides priorities?" These aren't obvious—Claude finds them.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Forces Articulation</h4>
+                    <p>Vague thinking cannot survive structured questioning. When asked "What do you mean by 'fast'?", you're forced to say "sub-100ms response time" or "loads in under 2 seconds"—precision emerges.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Captures Tradeoffs</h4>
+                    <p>Every feature has tradeoffs. AskUserQuestionTool unearths them: "Do you prioritize consistency or availability?" "Should this be real-time or eventually consistent?" Explicit choices prevent rework.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Scalable to Complexity</h4>
+                    <p>Simple features get simple interviews. Complex systems get deeper dives. AskUserQuestionTool adapts the depth and breadth of questioning based on your domain and answers.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Documents the Dialogue</h4>
+                    <p>The dialogue is the specification. Every question asked, every answer given, becomes part of your final SPEC.md. Nothing is lost—all reasoning is captured.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding: 24px; background: white; border-radius: 3px; border-left: 4px solid #B85C38;">
+                <p style="font-size: 14px; margin: 0;"><strong>Why This Matters:</strong> Without AskUserQuestionTool, specifications are just wishful thinking written down. With it, they're tested, challenged, and refined before code touches your idea. That's where the weeks of rework get prevented.</p>
+            </div>
         </div>
     </div>
 
