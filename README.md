@@ -37,4 +37,4 @@ The SPEC workflow ensures:
 
 Inspired by [@trq212](https://x.com/trq212/status/2005315275026260309?s=20)'s insights on spec-driven development.
 
-**Built with Claude Code** | Optimized for thought leadership and team collaboration
+**By Simone Leonelli** • December 2025
