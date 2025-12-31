@@ -527,17 +527,17 @@
                     </ul>
 
                     <div class="code-block">
-"read this @SPEC.md and interview me in detail using AskUserQuestionTool about: technical implementation, UI & UX, concerns, tradeoffs. Make sure questions aren't obvious. Be very in-depth. Continue until you've thoroughly challenged all assumptions, then write the refined spec to the file."
+"read this @SPEC.md and interview me using AskUserQuestionTool across 2-3 rounds. Each round: ask 2-4 multi-part questions probing technical implementation, data models, failure scenarios, scale requirements, UI/UX tradeoffs, and architectural choices. Make questions non-obvious and build on previous answers. After all rounds, write the refined spec to @SPEC.md with a 'Decisions Made' section."
                     </div>
 
                     <div class="citation">
-                        <strong>The Key:</strong> AskUserQuestionTool forces you to articulate what you actually mean. "Collaborative" becomes explicit. "Fast" gets measured. "Scalable" gets defined. This dialogue is where vague intentions crystallize into specifications. Inspired by <a href="https://x.com/trq212/status/2005315275026260309?s=20" target="_blank">@trq212's insights on spec-driven development</a>.
+                        <strong>The Key:</strong> AskUserQuestionTool forces you to articulate what you actually mean. "Collaborative" becomes explicit. "Fast" gets measured. "Scalable" gets defined. This dialogue is where vague intentions crystallize into specifications. The tool presents 2-4 options per question, creating structured decision points rather than free-form dialogue. Inspired by <a href="https://x.com/trq212/status/2005315275026260309?s=20" target="_blank">@trq212's insights on spec-driven development</a>.
                     </div>
                 </div>
 
                 <div class="step" data-step="3">
-                    <h3>Finalize</h3>
-                    <p>Claude writes the <span class="highlight">detailed specification</span> to SPEC.md. Architecture crystallizes. You now have a blueprint before writing code.</p>
+                    <h3>Finalize & Implement</h3>
+                    <p>Claude writes the <span class="highlight">detailed specification</span> to SPEC.md with explicit decisions, tradeoffs, and architecture. Then: start a fresh Claude Code session with this refined spec to implement. The separation prevents context contamination and gives Claude focused scope for clean code.</p>
                 </div>
             </div>
 
@@ -604,33 +604,33 @@
 
             <div class="feature-grid">
                 <div class="feature-item">
+                    <h4>Structured Decision Points</h4>
+                    <p>AskUserQuestionTool presents 2-4 options per question, creating <span class="highlight">structured decision points</span> rather than open-ended dialogue. Each answer is explicit and traceable. No ambiguity. No "I think I said that" moments.</p>
+                </div>
+
+                <div class="feature-item">
                     <h4>Reveals Hidden Assumptions</h4>
-                    <p>You think your spec is clear. It's not. AskUserQuestionTool asks questions that expose what you didn't consciously define: latency targets, failure scenarios, edge cases, prioritization.</p>
+                    <p>You think your spec is clear. It's not. The tool asks questions that expose what you didn't consciously define: latency targets, failure scenarios, edge cases, scale thresholds, and priority conflicts.</p>
                 </div>
 
                 <div class="feature-item">
                     <h4>Questions You Wouldn't Ask</h4>
-                    <p>Claude knows which questions matter. "What happens when X fails?" "How do you define success for this feature?" "Who decides priorities?" These aren't obvious—Claude finds them.</p>
+                    <p>Claude knows which questions matter. "What happens when X fails?" "How do you define success for this feature?" "When does performance matter most?" These aren't obvious—Claude finds them based on domain patterns.</p>
                 </div>
 
                 <div class="feature-item">
                     <h4>Forces Articulation</h4>
-                    <p>Vague thinking cannot survive structured questioning. When asked "What do you mean by 'fast'?", you're forced to say "sub-100ms response time" or "loads in under 2 seconds"—precision emerges.</p>
+                    <p>Vague thinking cannot survive structured questioning. When asked "What do you mean by 'fast'?", you're forced to say "sub-100ms response time" or "loads in under 2 seconds"—precision emerges through choice, not discussion.</p>
                 </div>
 
                 <div class="feature-item">
-                    <h4>Captures Tradeoffs</h4>
-                    <p>Every feature has tradeoffs. AskUserQuestionTool unearths them: "Do you prioritize consistency or availability?" "Should this be real-time or eventually consistent?" Explicit choices prevent rework.</p>
+                    <h4>Multi-Round Interviews</h4>
+                    <p>Effective spec interviews use 2-3 strategic rounds of questions, each building on previous answers. Early rounds explore scope and constraints. Later rounds probe edge cases and architectural implications. Each round typically asks 2-4 multi-part questions.</p>
                 </div>
 
                 <div class="feature-item">
-                    <h4>Scalable to Complexity</h4>
-                    <p>Simple features get simple interviews. Complex systems get deeper dives. AskUserQuestionTool adapts the depth and breadth of questioning based on your domain and answers.</p>
-                </div>
-
-                <div class="feature-item">
-                    <h4>Documents the Dialogue</h4>
-                    <p>The dialogue is the specification. Every question asked, every answer given, becomes part of your final SPEC.md. Nothing is lost—all reasoning is captured.</p>
+                    <h4>Documents Every Decision</h4>
+                    <p>The dialogue is the specification. Every question asked, every option chosen, becomes part of your final SPEC.md. The "Decisions Made" section documents architectural choices, tradeoffs accepted, and constraints acknowledged. Nothing is lost—all reasoning is captured.</p>
                 </div>
             </div>
 
@@ -644,7 +644,7 @@
     <div class="examples-section">
         <div class="examples-container">
             <h2>Real-World Examples</h2>
-            <p class="section-intro">See how the SPEC workflow transforms vague ideas into actionable specifications across different project types.</p>
+            <p class="section-intro">The SPEC workflow is most valuable for features with 2+ architectural decisions, integration points, or complex business logic. Here's how it prevents rework across different project types:</p>
 
             <div class="examples-grid">
                 <!-- EXAMPLE 1 -->
@@ -746,11 +746,69 @@
                 </div>
             </div>
 
+            <!-- WHEN TO USE SPEC -->
+            <h2 style="margin-top: 80px;">When to Use SPEC Workflow</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 32px;">
+                <div style="background: rgba(27, 130, 100, 0.08); padding: 24px; border-radius: 4px; border-left: 4px solid #1b8264;">
+                    <h4 style="color: #1b8264; margin-top: 0; font-weight: 700;">IDEAL FOR SPEC</h4>
+                    <ul style="font-size: 13px; line-height: 1.7; margin: 0; padding-left: 20px; color: rgba(27, 58, 82, 0.8);">
+                        <li>Features with 2+ architectural decisions</li>
+                        <li>Integration points (APIs, databases, external services)</li>
+                        <li>Complex business logic or edge cases</li>
+                        <li>Cross-team coordination needed</li>
+                        <li>Performance or scale concerns</li>
+                        <li>Long-term feature development (2+ weeks)</li>
+                    </ul>
+                </div>
+                <div style="background: rgba(139, 0, 0, 0.08); padding: 24px; border-radius: 4px; border-left: 4px solid #8B0000;">
+                    <h4 style="color: #8B0000; margin-top: 0; font-weight: 700;">LESS NECESSARY FOR</h4>
+                    <ul style="font-size: 13px; line-height: 1.7; margin: 0; padding-left: 20px; color: rgba(27, 58, 82, 0.8);">
+                        <li>Simple CRUD features</li>
+                        <li>Single-component UI changes</li>
+                        <li>Configuration or bug fixes</li>
+                        <li>Strictly defined requirements</li>
+                        <li>Features under 1 day to implement</li>
+                        <li>Iterative/MVP work with known roadmap</li>
+                    </ul>
+                </div>
+            </div>
+
             <!-- CLOSING -->
             <div style="margin-top: 80px; padding: 40px; background: linear-gradient(135deg, rgba(184, 92, 56, 0.05), rgba(184, 92, 56, 0.02)); border: 1px solid rgba(184, 92, 56, 0.15); border-radius: 4px;">
                 <h2 style="margin-top: 0;">The Cost of Clarity</h2>
-                <p style="font-size: 15px; margin-bottom: 0;">A 30-minute structured dialogue before writing code prevents weeks of rework. The SPEC workflow isn't about perfection—it's about making assumptions explicit so they can be questioned and resolved early.</p>
-                <p style="font-size: 14px; color: rgba(27, 58, 82, 0.65); margin-top: 20px; margin-bottom: 0;">Start with your next project. Write SPEC.md. Let the questions guide you toward what needs to be built.</p>
+                <p style="font-size: 15px; margin-bottom: 0;">30 minutes of structured questioning on a complex feature prevents 1-3 weeks of rework. The SPEC workflow isn't about perfection—it's about making assumptions explicit so they can be questioned and resolved early, <strong>before code changes everything</strong>.</p>
+                <p style="font-size: 14px; color: rgba(27, 58, 82, 0.65); margin-top: 20px; margin-bottom: 0;"><strong>Start today:</strong> For your next substantial feature, write SPEC.md. Paste the interview prompt into Claude Code. Let AskUserQuestionTool guide you toward what needs to be built.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- REFERENCES & RESOURCES -->
+    <div style="padding: 80px 60px; background: rgba(27, 58, 82, 0.02); border-top: 1px solid rgba(27, 58, 82, 0.1);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2>Resources & Further Reading</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 32px;">
+                <div>
+                    <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #B85C38; margin-bottom: 16px;">On Claude Code</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 1.8; color: rgba(27, 58, 82, 0.8);">
+                        <li style="margin-bottom: 12px;"><strong><a href="https://github.com/MustBeSimo/howtoClaude" style="color: #B85C38; text-decoration: none;">How to Work with Claude</a></strong> — Your foundational guide to Claude Code features, prompting techniques, and best practices</li>
+                        <li style="margin-bottom: 12px;"><strong>AskUserQuestionTool Documentation</strong> — Learn the technical constraints and optimal patterns for structured questioning</li>
+                        <li><strong>Claude Code System Reference</strong> — File references (@SPEC.md syntax), session management, and tool capabilities</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #B85C38; margin-bottom: 16px;">On Spec-Driven Development</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 13px; line-height: 1.8; color: rgba(27, 58, 82, 0.8);">
+                        <li style="margin-bottom: 12px;"><strong>GitHub Spec Kit</strong> — Specification-driven development framework used by leading teams</li>
+                        <li style="margin-bottom: 12px;"><strong>Anthropic Best Practices</strong> — "Plan before code" methodology and rationale</li>
+                        <li><strong>IEEE Research</strong> — Studies show every hour on specification saves 10 hours of rework</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 48px; padding: 24px; background: white; border-radius: 4px; border-left: 4px solid #B85C38;">
+                <p style="font-size: 13px; color: rgba(27, 58, 82, 0.8); margin: 0;"><strong>Start here:</strong> Read <a href="https://github.com/MustBeSimo/howtoClaude" style="color: #B85C38; text-decoration: none;">How to Work with Claude</a> to understand general Claude Code capabilities. Then apply the SPEC workflow to transform those capabilities into a structured, repeatable process for building features with clarity and confidence.</p>
             </div>
         </div>
     </div>
