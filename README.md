@@ -2,9 +2,21 @@
 
 A structured approach to transform vague ideas into detailed specifications through dialogue with Claude Code.
 
-## View the Presentation
-
 **[👉 View the Interactive Guide](https://mustsbesimo.github.io/ClaudeSpecInterview/)**
+
+---
+
+## License & Terms of Use
+
+This work is provided under **CC-BY-NC-4.0** (Creative Commons Attribution-NonCommercial 4.0).
+
+- ✅ Free for educational and non-commercial use
+- ✅ Share, adapt, and build upon it (with attribution)
+- ❌ Not permitted for commercial purposes without explicit permission
+
+See [LICENSE](./LICENSE) and [NOTICE](./NOTICE) for full details.
+
+**For commercial use**, contact: Simone Leonelli (https://w230.net)
 
 ## What is SPEC?
 
@@ -28,6 +40,16 @@ The SPEC workflow ensures:
 1. Create a `SPEC.md` file for your next project (minimal draft, 2–5 paragraphs)
 2. Share it with Claude Code using the interview prompt from the guide
 3. Let the dialogue reveal what you truly need to build
+
+## Philosophy: Public Guide, Private Process
+
+**This repository:** The polished, documented SPEC methodology that anyone can learn from and apply.
+
+**Your process:** Keep your personal notes, iterations, implementation details, and project-specific contexts private.
+
+The guide teaches the pattern. Your specific use cases, learnings, and refinements stay with you—giving you unique advantage while you publicly establish thought leadership on the methodology itself.
+
+**Result:** You share the blueprint everyone can use, while keeping your competitive advantage in how you apply it.
 
 ## Time Investment
 
